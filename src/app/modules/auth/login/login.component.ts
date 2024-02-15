@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup | any;
+  form: FormControl<any> | any;
 
   constructor(
     private formBuilder: FormBuilder
@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
+    console.log(this.form.get('email').value);
+    console.log(this.form.get('password').value);
+    console.log(this.form.valid);
   }
 }
